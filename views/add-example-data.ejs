@@ -1,0 +1,50 @@
+<div class="container mt-3" style="padding-top: 4rem">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Form tambah data tabel</h2>
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-warning" role="alert">
+        <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+      </div>
+      <% } %>
+
+      <form method="post" action="/example-data">
+        <div class="mb-3">
+          <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required />
+        </div>
+        <div class="mb-3">
+          <label for="nama_panggilan" class="form-label">Nama Panggilan</label>
+          <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan" required />
+        </div>
+        <div class="mb-3">
+          <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+          <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required />
+        </div>
+        <div class="mb-3">
+          <label for="tanggal_lahir" class="form-label">Tanggal lahir</label>
+          <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required />
+        </div>
+        <div class="mb-3">
+          <label for="golongan_darah" class="form-label">Golongan Darah</label>
+          <input type="text" class="form-control" id="golongan_darah" name="golongan_darah" required />
+        </div>
+        <div class="mb-3">
+          <label for="no_hp" class="form-label">No HP</label>
+          <input type="text" class="form-control" id="no_hp" name="no_hp" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="keterangan" class="form-label">Keterangan</label>
+          <input type="text" class="form-control" id="keterangan" name="keterangan" required />
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Tambah data contact</button>
+      </form>
+    </div>
+  </div>
+</div>
