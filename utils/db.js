@@ -1,10 +1,18 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/test", {
+// read environment variable from .env
+require('dotenv').config()
+
+mongoose.connect(process.env?.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+}).then(_ => {
+  console.log('🤩 Mongo connected.')
+}).catch(err => {
+  console.log('😡 Mongo error.')
+  console.log(String(err))
+})
 
 // 1. buat Skema
 // const Example_Data = mongoose.model("Example_Data", {
