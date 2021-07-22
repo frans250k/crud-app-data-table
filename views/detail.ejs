@@ -1,0 +1,29 @@
+<div class="container mt-3" style="padding-top: 4rem">
+  <div class="row">
+    <div class="col-md-8">
+      <% if (!example_data) { %>
+      <div class="alert alert-danger fw-bold" role="alert">Data nama tidak terdaftar.<a href="/example-data" class="alert-link fw-normal">&laquo; Kembali ke daftar tabel.</a></div>
+      <% } else{ %>
+      <h2>Detail data nama</h2>
+      <div class="card" style="width: 25rem">
+        <div class="card-body">
+          <h5 class="card-title">Nama Lengkap : <%= example_data.nama_lengkap %></h5>
+          <p class="card-subtitle mb-2 text-muted">Nama panggilan : <%= example_data.nama_panggilan %></p>
+          <p class="card-subtitle mb-2 text-muted">Tempat lahir : <%= example_data.tempat_lahir %></p>
+          <p class="card-subtitle mb-2 text-muted">Tanggal lahir : <%= example_data.tanggal_lahir %></p>
+          <p class="card-subtitle mb-2 text-muted">Golongan Darah : <%= example_data.golongan_darah %></p>
+          <p class="card-subtitle mb-2 text-muted">No HP : <%= example_data.no_hp %></p>
+          <p class="card-subtitle mb-2 text-muted">Email : <%= example_data.email %></p>
+          <p class="card-subtitle mb-2 text-muted">Keterangan : <%= example_data.keterangan %></p>
+          <a href="/example-data/edit/<%= example_data.nama_lengkap %>" class="btn btn-info badge">Ubah</a>
+          <form action="/example-data?_method=DELETE" method="POST" class="d-inline">
+            <input type="hidden" name="nama_lengkap" value="<%= example_data.nama_lengkap %>" />
+            <button type="submit" class="btn btn-danger badge" onclick="return confirm('Yakin?')">Hapus</button>
+          </form>
+          <a href="/example-data" class="card-link d-blok mt-3">&laquo; Kembali ke daftar data tabel</a>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
