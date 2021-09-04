@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // read environment variable from .env
-require("dotenv").config();
+require("dotenv").config({ path: ".env" });
 
 mongoose
   .connect(process.env?.MONGO_URI, {
