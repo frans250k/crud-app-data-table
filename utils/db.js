@@ -17,7 +17,16 @@ mongoose
     console.log(String(err));
   });
 
-// 1. buat Skema
+// ============================================================================
+
+// // tes connect mongo cloud dan buat schema manual
+// mongoose.connect("kopi uri", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+// });
+
+// // 1. buat Skema
 // const Example_Data = mongoose.model("Example_Data", {
 //   nama_lengkap: {
 //     type: String,
