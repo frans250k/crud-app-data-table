@@ -1,0 +1,55 @@
+<div class="container mt-4" style="padding-top: 7rem">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Daftar data tabel</h2>
+        <form class="d-flex col-md-5">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <a href="/example-data/add" class="btn btn-primary mt-3">Tambah data tabel</a>
+        <% if (msg.length !== 0) { %>
+          <div class="alert alert-success" role="alert">
+            <%= msg %></div> <% } %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nama Lengkap</th>
+              <th scope="col">Nama Panggilan</th>
+              <th scope="col">Tempat Lahir</th>
+              <th scope="col">Tanggal Lahir</th>
+              <th scope="col">Golongan Darah</th>
+              <th scope="col">No HP</th>
+              <th scope="col">Email</th>
+              <th scope="col">Keterangan</th>
+            </tr>
+          </thead>
+          <% if (example_datas.length === 0) { %>
+              <tr>
+                <td colspan="4">
+                  <div class="alert alert-danger fw-bold" role="alert">Data tabel masih kosong.</div>
+                </td>
+              </tr>
+              <% } %> <% example_datas.forEach((example_data, i) => { i++%>
+              <tr>
+              <th scope="row"><%= i++ %></th>
+              <td scope="col"><%= example_data.nama_lengkap %></td>
+              <td scope="col"><%= example_data.nama_panggilan %></td>
+              <td scope="col"><%= example_data.tempat_lahir %></td>
+              <td scope="col"><%= example_data.tanggal_lahir %></td>
+              <td scope="col"><%= example_data.golongan_darah %></td>
+              <td scope="col"><%= example_data.no_hp %></td>
+              <td scope="col"><%= example_data.email %></td>
+              <td scope="col"><%= example_data.keterangan %></td>
+              <td>
+                <a href="/example-data/<%= example_data.nama_lengkap %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> detail</a>
+              </td>
+            </tr>
+  
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

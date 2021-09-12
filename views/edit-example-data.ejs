@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-7">
+      <h2>Form ubah data tabel</h2>
+
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-warning" role="alert">
+        <ul>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <% } %>
+
+      <form method="post" action="/example-data?_method=PUT">
+        <input type="hidden" name="_id" value="<%= example_data._id %>" />
+        <input type="hidden" name="oldNama" value="<%= (example_data.oldNama) ? example_data.oldNama : example_data.nama_lengkap  %>" />
+        <div class="mb-3">
+          <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required value="<%= example_data.nama_lengkap %>" />
+        </div>
+        <div class="mb-3">
+          <label for="nama_panggilan" class="form-label">Nama Panggilan</label>
+          <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan" required value="<%= example_data.nama_panggilan %>" />
+        </div>
+        <div class="mb-3">
+          <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+          <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required value="<%= example_data.tempat_lahir %>" />
+        </div>
+        <div class="mb-3">
+          <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+          <input type="date" class="form-control" id="tanggal_Lahir" name="tanggal_lahir" required value="<%= example_data.tanggal_lahir %>" />
+        </div>
+        <div class="mb-3">
+          <label for="golongan_darah" class="form-label">Golongan Darah</label>
+          <input type="text" class="form-control" id="golongan_darah" name="golongan_darah" required value="<%= example_data.golongan_darah %>" />
+        </div>
+        <div class="mb-3">
+          <label for="no_hp" class="form-label">No HP</label>
+          <input type="text" class="form-control" id="no_hp" name="no_hp" required value="<%= example_data.no_hp %>" />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required value="<%= example_data.email %>" />
+        </div>
+        <div class="mb-3">
+          <label for="no_hp" class="form-label">Keterangan</label>
+          <input type="text" class="form-control" id="no_hp" name="keterangan" required value="<%= example_data.keterangan %>" />
+        </div>
+        <button type="submit" class="btn btn-primary">Ubah data</button>
+      </form>
+    </div>
+  </div>
+</div>
